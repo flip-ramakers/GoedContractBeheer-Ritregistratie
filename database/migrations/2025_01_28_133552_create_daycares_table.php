@@ -11,8 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('plannings', function (Blueprint $table) {
+        Schema::create('daycares', function (Blueprint $table) {
             $table->id();
+            $table->longText('name');
+            $table->longText('street_address');
+            $table->longText('postal_code');
+            $table->longText('city');
+            $table->longText('telephone');
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
             $table->timestamps();
         });
     }
@@ -22,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('plannings');
+        Schema::dropIfExists('daycares');
     }
 };

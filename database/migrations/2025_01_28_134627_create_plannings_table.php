@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('daycare_user', function (Blueprint $table) {
+        Schema::create('plannings', function (Blueprint $table) {
             $table->id();
+            $table->int('client_id');
+            $table->int('daycare_id');
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('daycare_user');
+        Schema::dropIfExists('plannings');
     }
 };

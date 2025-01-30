@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('plannings', function (Blueprint $table) {
             $table->id();
-            $table->int('client_id');
-            $table->int('daycare_id');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->foreignId('client_id');
+            $table->foreignId('daycare_id');
             $table->timestamps();
         });
     }

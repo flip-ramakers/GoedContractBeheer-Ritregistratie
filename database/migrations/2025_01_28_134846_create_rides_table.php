@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('rides', function (Blueprint $table) {
             $table->id();
-            $table->int('client_id');
-            $table->int('daycare_id');
+            $table->foreignId('client_id');
+            $table->foreignId('daycare_id');
             $table->longText('remark');
             $table->timestamp('start');
             $table->timestamp('end');
             $table->timestamp('refusal');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
             $table->timestamps();
         });
     }

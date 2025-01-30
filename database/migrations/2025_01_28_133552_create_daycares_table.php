@@ -18,8 +18,6 @@ return new class extends Migration
             $table->longText('postal_code');
             $table->longText('city');
             $table->longText('telephone');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
             $table->timestamps();
         });
     }

@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('daycare_user', function (Blueprint $table) {
             $table->id();
-            $table->int('user_id');
-            $table->int('daycare_id');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->foreignId('user_id');
+            $table->foreignId('daycare_id');
             $table->timestamps();
         });
     }

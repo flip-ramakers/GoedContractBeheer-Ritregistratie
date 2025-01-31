@@ -12,14 +12,14 @@ class AdminController extends Controller
 
     public function index()
     {
-        $user = User::all();
-        return view('admins.index', compact('users'));
+        $admins = User::all();
+        return view('admins.index', compact('admins'));
     }
 
 
     public function create()
     {
-        return view('users.create');
+        return view('admins.create');
     }
 
 
@@ -42,10 +42,10 @@ class AdminController extends Controller
     }
 
 
-    public function edit(string $id)
+    public function edit(string $id )
     {
-        $user = User::findOrFail($id);
-        return view('admins.edit', compact('user'));
+        $admin = user::findOrFail($id);
+        return view('admins.edit', compact('admin'));
     }
 
 

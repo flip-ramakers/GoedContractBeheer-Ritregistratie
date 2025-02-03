@@ -10,9 +10,14 @@
             <li><a href="#" class="nav-link text-white px-2">Dagbestedingen</a></li>
             <li><a href="{{ route('admins.index') }}" class="nav-link text-white px-2">Admins</a></li>
         </ul>
-        
+
         <div class="text-end">
-            <button type="button" class="btn btn-danger">Logout</button>
+            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
         </div>
+        
+
     </div>
 </div>

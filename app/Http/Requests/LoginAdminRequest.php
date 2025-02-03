@@ -22,8 +22,9 @@ class LoginAdminRequest extends FormRequest
     public function rules()
     {
         return [
+            'name' => 'required|max:255',
             'email' => 'required|email|exists:users,email',
-            'password' => 'required|string|min:6',           
+            'password' => 'required|string|min:6|confirmed',           
         ];
     }
 }

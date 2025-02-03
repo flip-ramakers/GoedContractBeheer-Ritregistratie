@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAdminRequest;
+use App\Http\Requests\UpdateAdminRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -26,46 +27,41 @@ class AdminController extends Controller
     public function store(StoreAdminRequest $request)
     {
         $validated = $request->validated();
-    
+
         $validated['password'] = Hash::make($validated['password']);
-    
+
         User::create($validated);
-    
+
+        return back()->withErrors([
+            'email' => 'Dit e-mailadres is al in gebruik.',
+        ]);
+
         return redirect()->route('admins.index')->with('success', 'User created successfully!');
     }
 
-
-    public function show(string $id)
+    public function edit(string $id)
     {
-        $user = User::findOrFail($id);
-        return view('admins.show', compact('user'));
-    }
-
-
-    public function edit(string $id )
-    {
-        $admin = user::findOrFail($id);
+        $admin = User::findOrFail($id);
         return view('admins.edit', compact('admin'));
     }
 
 
-    public function update(Request $request, string $id)
+    public function update(UpdateAdminRequest $request, string $id)
     {
         $user = User::findOrFail($id);
-    
         $validated = $request->validated();
-    
+
         if (!empty($validated['password'])) {
             $validated['password'] = Hash::make($validated['password']);
         } else {
-
             unset($validated['password']);
         }
-    
+
         $user->update($validated);
-    
-        return redirect()->route('admins.index')->with('success', 'admin updated successfully!');
+
+        return redirect()->route('admins.index')->with('success', 'Admin updated successfully!');
     }
+
 
 
     public function destroy(string $id)

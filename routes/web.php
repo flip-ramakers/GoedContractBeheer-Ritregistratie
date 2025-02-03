@@ -11,9 +11,8 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('admins', AdminController::class);
     Route::get('admins/{admin}/edit', [AdminController::class, 'edit'])->name('admins.edit');
-
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
-Route::any('/logout', [LoginController::class, 'logout'])->name('login.logout');

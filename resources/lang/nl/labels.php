@@ -1,6 +1,6 @@
 <?php
 return [
-    'name' => 'Naaem',
+    'name' => 'Naam',
     'email' => 'Email',
     'admins' => 'Admins',
     'clienten' => 'Cliënten',

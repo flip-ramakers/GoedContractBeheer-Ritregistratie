@@ -5,6 +5,7 @@ return [
     'back' => 'Terug',
     'admin' => 'Admin',
     'email' => 'Email',
+    'edit' => 'Bewerk',
     'save' => 'Opslaan',
     'signin' => 'Log in',
     'admins' => 'Admins',

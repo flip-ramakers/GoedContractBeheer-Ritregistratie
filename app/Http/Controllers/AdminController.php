@@ -32,9 +32,6 @@ class AdminController extends Controller
 
         User::create($validated);
 
-        return back()->withErrors([
-            'email' => 'Dit e-mailadres is al in gebruik.',
-        ]);
 
         return redirect()->route('admins.index')->with('success', 'User created successfully!');
     }

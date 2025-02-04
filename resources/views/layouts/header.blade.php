@@ -5,7 +5,7 @@
         </a>
 
         <ul class="nav  ms-3 col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link text-white px-2">Chauffeurs</a></li>
+            <li><a href="{{ route('chauffeurs.index') }}" class="nav-link text-white px-2">Chauffeurs</a></li>
             <li><a href="#" class="nav-link text-white px-2">Cliënten</a></li>
             <li><a href="#" class="nav-link text-white px-2">Dagbestedingen</a></li>
             <li><a href="{{ route('admins.index') }}" class="nav-link text-white px-2">Admins</a></li>
@@ -18,6 +18,5 @@
             </form>
         </div>
         
-
     </div>
 </div>

@@ -12,10 +12,10 @@
 
 <main class=" w-100 m-auto">
     <div class="container justify-content-center ">
-        
-        <form method="POST" action="{{ route('admins.store') }}">
+        <a href="{{ route('chauffeurs.index') }}" class="btn btn-dark mb-4 mt-4 me-2 py-2">{{ __('labels.back') }}</a>
+        <form method="POST" action="{{ route('chauffeurs.store') }}">
             @csrf
-            <h1 class="h3 mb-3 fw-normal"> <a href="{{ route('admins.index') }}" class="btn btn-dark mb-4 mt-4 me-2 py-2"> {{ __('labels.back') }}</a>{{ __('labels.admin') }} {{ __('labels.create') }}</h1>
+            <h1 class="h3 mb-3 fw-normal">{{ __('labels.chauffeurs') }} {{ __('labels.create') }}</h1>
             <div class="mb-3">
                 <label for="Name">{{ __('labels.name') }}<span
                         class="text-danger">{{ __('labels.star') }}</span></label>
@@ -28,18 +28,12 @@
                 <input type="email" class="form-control w-100" name="email" id="Email"
                     placeholder="{{ __('labels.email') }}" required>
             </div>
-            <div class="mb-3">
-                <label for="Password">{{ __('labels.password') }}<span
-                        class="text-danger">{{ __('labels.star') }}</span></label>
-                <input type="password" class="form-control w-100" name="password" id="Password"
-                    placeholder="{{ __('labels.password') }}" required>
-            </div>
-            <div class="mb-3">
-                <label for="PasswordConfirm">{{ __('labels.confirm') }} {{ __('labels.password') }}<span
-                        class="text-danger">{{ __('labels.star') }}</span></label>
-                <input type="password" class="form-control w-100" name="password_confirmation" id="PasswordConfirm"
-                    placeholder="Bevestig wachtwoord" required>
-            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Default checkbox
+                </label>
+              </div>
             <button class="btn btn-success mb-4 mt-4 me-2 py-2" type="submit">{{ __('labels.save') }}</button>
         </form>
     </div>

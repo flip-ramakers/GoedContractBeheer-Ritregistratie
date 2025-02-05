@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChauffeurController;
+use App\Http\Controllers\ClientenController;
+use App\Http\Controllers\DaycaresController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('admins/{admin}/edit', [AdminController::class, 'edit'])->name('admins.edit');
     
     Route::resource('chauffeurs', ChauffeurController::class);
+    Route::resource('daycares', DaycaresController::class);
+    Route::resource('clienten', ClientenController::class);
     
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });

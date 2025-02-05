@@ -33,7 +33,7 @@ class AdminController extends Controller
         User::create($validated);
 
 
-        return redirect()->route('admins.index')->with('success', 'User created successfully!');
+        return redirect()->route('admins.index')->with('success', __('labels.admin_created'));
     }
 
     public function edit(string $id)
@@ -56,7 +56,7 @@ class AdminController extends Controller
 
         $user->update($validated);
 
-        return redirect()->route('admins.index')->with('success', 'Admin updated successfully!');
+        return redirect()->route('admins.index')->with('success', __('labels.admin_updated'));
     }
 
 
@@ -66,6 +66,6 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('admins.index')->with('success', 'admin deleted successfully!');
+        return redirect()->route('admins.index')->with('success', __('labels.daycare_deleted'));
     }
 }

@@ -21,7 +21,7 @@
                 <label for="Name">{{ __('labels.name') }}<span
                         class="text-danger">{{ __('labels.star') }}</span></label>
                 <input type="text" class="form-control w-100" name="name" id="Name"
-                    placeholder="{{ __('labels.voorbeeldnaam') }}" required>
+                    placeholder="{{ __('labels.voorbeelddagbesteding') }}" required>
             </div>
             <div class="mb-3">
                 <label for="street_address">{{ __('labels.street_addres') }}<span

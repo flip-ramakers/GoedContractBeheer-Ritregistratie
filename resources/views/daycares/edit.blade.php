@@ -17,10 +17,11 @@
     @endif
     
     <form method="POST" action="{{ route('daycares.update', $daycare->id) }}">
-        <ul class="list-group list-group-horizontal list-group-flush">
-            <li class="list-group-item"><a href="{{ route('daycares.index') }}" class="btn btn-dark">{{ __('labels.back') }}</a></li>
-            <li class="list-group-item"><h2 class="mb-4">{{ __('labels.edit') }} {{ __('labels.daycares') }}</h2></li>
+        <ul class="list-inline mt-5">
+            <li class="list-inline-item"><a href="{{ route('daycares.index') }}" class="btn btn-dark">{{ __('labels.back') }}</a></li>
+            <li class="list-inline-item"><h2 class="mb-4">{{ __('labels.edit') }} {{ __('labels.daycares') }}</h2></li>
         </ul>
+
         @csrf
         @method('PUT') 
 

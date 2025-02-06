@@ -9,10 +9,11 @@ return [
 
     'star' => '*',
     'back' => 'Terug',
+    'actions' => 'Acties',
     'edit' => 'Bewerk',
     'save' => 'Opslaan',
     'create' => 'Toevoegen',
-    'delete' => 'verwijder',
+    'delete' => 'Verwijder',
     'confirm' => 'Bevestig',
     'signin' => 'Log in',
     'signout' => 'Log uit',
@@ -25,12 +26,20 @@ return [
     'voorbeeldpostcode' => 'bijv. 2000 AB',
     'voorbeeldtelefoonnummer' => 'bijv. 0612345678',
 
+
+    
     'name' => 'Naam',
     'email' => 'Email',
     'city' => 'Stad',
     'street_addres' => 'Straat + huisnmr',
     'telephone' => 'Telefoonnummer',
     'postal_code' => 'Postcode',
+
+
+    'admin_delete_request' => 'Weet je zeker dat je deze admin wilt verwijderen?',
+    'daycare_delete_request' => 'Weet je zeker dat je deze Daycare wilt verwijderen?',
+    'chauffeur_delete_request' => 'Weet je zeker dat je deze admin wilt verwijderen?',
+    'client_delete_request' => 'Weet je zeker dat je deze admin wilt verwijderen?',
 
     'daycare_created' => 'Dagbesteding met succes toegevoegd!',
     'daycare_updated' => 'Dagbesteding met succes gewijzigd!',

@@ -10,4 +10,10 @@ class Daycare extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'street_address', 'postal_code', 'city', 'telephone'];
+
+    public function chauffeurs()
+    {
+        return $this->belongsToMany(Chauffeur::class, 'chauffeur_daycare');
+
+    }
 }

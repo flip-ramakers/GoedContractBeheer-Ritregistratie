@@ -21,9 +21,7 @@ class DaycaresController extends Controller
 
     public function store(StoreDaycareRequest $request)
     {
-        // Maak een nieuwe daycare aan
         Daycare::create($request->validated());
-
         return redirect()->route('daycares.index')->with('success', __('labels.daycare_created'));
     }
 
@@ -34,9 +32,7 @@ class DaycaresController extends Controller
 
     public function update(StoreDaycareRequest $request, Daycare $daycare)
     {
-        // Update bestaande daycare
         $daycare->update($request->validated());
-
         return redirect()->route('daycares.index')->with('success', __('labels.daycare_updated'));
     }
 

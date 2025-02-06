@@ -14,7 +14,7 @@
                 <th>{{ __('labels.postal_code') }}</th>
                 <th>{{ __('labels.city') }}</th>
                 <th>{{ __('labels.telephone') }}</th>
-                <th></th>
+                <th>{{ __('labels.actions') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +29,7 @@
                         <div class="d-flex justify-content-end">
                             <a href="{{ route('daycares.edit', ['daycare' => $daycare->id]) }}" class="btn btn-dark me-2">{{ __('labels.edit') }}</a>
                             <form action="{{ route('daycares.destroy', $daycare->id) }}" method="POST"
-                                onsubmit="return confirm('{{ __('labels.confirm_delete') }}');">
+                                onsubmit="return confirm('{{ __('labels.daycare_delete_request') }} {{ $daycare->name }}');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">{{ __('labels.delete') }}</button>

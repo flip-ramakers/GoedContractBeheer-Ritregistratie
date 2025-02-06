@@ -24,7 +24,7 @@ class StoreChauffeurRequest extends FormRequest
         return [
             'name' => 'max:255',
             'email' => 'required|email',
-       
+            'daycares' => 'array|exists:daycares,id',       
         ];
     }
 }

@@ -21,12 +21,12 @@
                     <td>{{ $admin->email }}</td>
                     <td>
                         <div class="d-flex justify-content-end">
-                            <a href="{{ route('admins.edit', ['admin' => $admin->id]) }}" class="btn btn-dark me-2">Bewerk</a>
+                            <a href="{{ route('admins.edit', ['admin' => $admin->id]) }}" class="btn btn-dark me-2">{{__('labels.edit')}}</a>
                             <form action="{{ route('admins.destroy', $admin->id) }}" method="POST"
-                                onsubmit="return confirm('Weet je zeker dat je deze admin wilt verwijderen?');">
+                                onsubmit="return confirm('{{__('labels.admin_delete_request')}} {{ $admin->name }}');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Verwijder</button>
+                                <button type="submit" class="btn btn-danger">{{ __('labels.delete') }}</button>
                             </form>
                         </div>
                     </td>

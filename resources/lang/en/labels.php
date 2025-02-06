@@ -10,7 +10,7 @@ return [
     'star' => '*',
     'back' => 'Terug',
     'actions' => 'Acties',
-    'edit' => 'Bewerk',
+    'edit' => 'Bewerken',
     'save' => 'Opslaan',
     'create' => 'Toevoegen',
     'delete' => 'Verwijder',

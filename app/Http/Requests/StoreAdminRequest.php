@@ -25,7 +25,7 @@ class StoreAdminRequest extends FormRequest
          $userId = $this->route('user');
         
          return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
         ];

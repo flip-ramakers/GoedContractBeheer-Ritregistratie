@@ -12,13 +12,17 @@
 
 <main class="w-100 m-auto">
     <div class="container justify-content-center">
-        <a href="{{ route('chauffeurs.index') }}" class="btn btn-dark mb-4 mt-4 me-2 py-2">{{ __('labels.back') }}</a>
+
+        <ul class="list-inline mt-5">
+            <li class="list-inline-item"><a href="{{ route('chauffeurs.index') }}"class="btn btn-dark">{{ __('labels.back') }}</a>
+                <li class="list-inline-item"><h1 class="h3 mb-3 ">{{ __('labels.chauffeurs') }} {{ __('labels.edit') }}</h1>
+        </ul>
 
         <form method="POST" action="{{ route('chauffeurs.update', $chauffeur->id) }}">
+
             @csrf
             @method('PUT')
 
-            <h1 class="h3 mb-3 fw-normal">{{ __('labels.chauffeurs') }} {{ __('labels.edit') }}</h1>
             <div class="mb-3">
                 <label for="Name">{{ __('labels.name') }}<span class="text-danger">*</span></label>
                 <input type="text" class="form-control w-100" name="name" id="Name"
@@ -34,8 +38,8 @@
                 <label>{{ __('labels.daycares') }}</label>
                 @foreach ($daycares as $daycare)
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="daycares[]" 
-                            value="{{ $daycare->id }}" id="daycare-{{ $daycare->id }}"
+                        <input class="form-check-input" type="checkbox" name="daycares[]" value="{{ $daycare->id }}"
+                            id="daycare-{{ $daycare->id }}"
                             {{ $chauffeur->daycares->contains($daycare->id) ? 'checked' : '' }}>
                         <label class="form-check-label" for="daycare-{{ $daycare->id }}">
                             {{ $daycare->name }} ({{ $daycare->city }})

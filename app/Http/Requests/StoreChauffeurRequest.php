@@ -22,8 +22,8 @@ class StoreChauffeurRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'max:255',
-            'email' => 'required|email',
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
             'daycares' => 'array|exists:daycares,id',       
         ];
     }

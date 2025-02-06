@@ -6,3 +6,5 @@
         <a href="{{ route('clienten.create') }}" class="btn btn-success">{{ __('labels.create') }}</a>
     </div>
 @endsection
+
+

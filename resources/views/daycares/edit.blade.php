@@ -1,25 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="d-flex justify-content-between align-items-center mb-4" style="margin-top:25px;">
-        <a href="{{ route('daycares.index') }}" class="btn btn-dark">{{ __('labels.back') }}</a>
-    </div>
-    <div>
-        <h2 class="mb-4">{{ __('labels.edit') }} {{ __('labels.daycares') }}</h2>
-    </div>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
 
+
+    {{-- <div class="d-flex justify-content-between align-items-center mb-4" style="margin-top:25px;"></div> --}}
+
+    
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    
     <form method="POST" action="{{ route('daycares.update', $daycare->id) }}">
+        <ul class="list-group list-group-horizontal list-group-flush">
+            <li class="list-group-item"><a href="{{ route('daycares.index') }}" class="btn btn-dark">{{ __('labels.back') }}</a></li>
+            <li class="list-group-item"><h2 class="mb-4">{{ __('labels.edit') }} {{ __('labels.daycares') }}</h2></li>
+        </ul>
         @csrf
-        @method('PUT') {{-- Zorgt ervoor dat Laravel het als een update ziet --}}
+        @method('PUT') 
 
         <div class="mb-3">
             <label for="name">{{ __('labels.name') }}<span class="text-danger">*</span></label>
@@ -38,7 +41,7 @@
             <input type="text" class="form-control" name="postal_code" id="postal_code"
                 value="{{ old('postal_code', $daycare->postal_code) }}" required>
         </div>
-        
+
         <div class="mb-3">
             <label for="city">{{ __('labels.city') }}<span class="text-danger">*</span></label>
             <input type="text" class="form-control" name="city" id="city"

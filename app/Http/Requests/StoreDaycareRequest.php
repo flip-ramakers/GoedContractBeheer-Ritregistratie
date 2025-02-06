@@ -22,11 +22,11 @@ class StoreDaycareRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string',
             'street_address' => 'required|string|max:255',
-            'postal_code' => 'required|string|max:20',
+            'postal_code' => 'required|string|max:7',
             'city' => 'required|string|max:100',
-            'telephone' => 'required|string|max:20',
+            'telephone' => 'required|string|max:10',
         ];
     }
 }

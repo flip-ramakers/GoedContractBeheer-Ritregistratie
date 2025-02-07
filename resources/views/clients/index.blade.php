@@ -21,15 +21,15 @@
             @foreach ($clients as $client)
                 <tr>
                     <td>{{ $client->name }}</td>
-                    <td>{{ $client->street_addres }}</td>
+                    <td>{{ $client->street_address }}</td>
                     <td>{{ $client->postal_code }}</td>
                     <td>{{ $client->city }}</td>
                     <td>{{ $client->telephone }}</td>
                     <td>
                         <div class="d-flex justify-content-end">
-                            <a href="{{ route('clienten.edit', ['clienten' => $client->id]) }}" class="btn btn-dark me-2">{{ __('labels.edit') }}</a>
-                            <form action="{{ route('clienten.destroy', $client->id) }}" method="POST"
-                                onsubmit="return confirm('{{ __('labels.client_delete_request') }} {{ $client->name }}?');">
+                            <a href="{{ route('clients.edit', ['client' => $client->id]) }}" class="btn btn-dark me-2">{{ __('labels.edit') }}</a>
+                            <form action="{{ route('clients.destroy', $client->id) }}" method="POST"
+                                  onsubmit="return confirm('{{ __('labels.client_delete_request') }} {{ $client->name }}?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">{{ __('labels.delete') }}</button>

@@ -11,52 +11,42 @@ class ClientenController extends Controller
     public function index()
     {
         $clients = Client::all();
-        return view("clienten.index", compact('clients'));
+        return view("clients.index", compact('clients')); 
     }
 
     public function create()
     {
-        return view("clienten.create");
+        return view("clients.create"); 
     }
 
     public function store(StoreClientRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'street_address' => 'required|string|max:255',
-            'postal_code' => 'required|string|max:10',
-            'city' => 'required|string|max:100',
-            'telephone' => 'required|string|max:15',
-        ]);
+        // dd($request->validated());
 
-        Client::create($request->all());
+        Client::create($request->validated());
 
-        return redirect()->route('clienten.index')->with('success', __('labels.client_created'));
+        // Client::create($request->all());
+
+        return redirect()->route('clients.index')->with('success', __('labels.client_created'));
     }
 
-    public function edit(Client $clienten)
+    public function edit(Client $client)
     {
-        return view("clienten.edit", compact('clienten'));
+        return view("clients.edit", compact('client'));
     }
 
-    public function update(StoreClientRequest $request, Client $clienten)
+    public function update(StoreClientRequest $request, Client $client)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'street_address' => 'required|string|max:255',
-            'postal_code' => 'required|string|max:10',
-            'city' => 'required|string|max:100',
-            'telephone' => 'required|string|max:15',
-        ]);
+        $client->update($request->validated());
 
-        $clienten->update($request->all());
+        $client->update($request->all());
 
-        return redirect()->route('clienten.index')->with('success', __('labels.client_updated'));
+        return redirect()->route('clients.index')->with('success', __('labels.client_updated'));
     }
 
-    public function destroy(Client $clienten)
+    public function destroy(Client $client)
     {
-        $clienten->delete();
-        return redirect()->route('clienten.index')->with('success', __('labels.client_deleted'));
+        $client->delete();
+        return redirect()->route('clients.index')->with('success', __('labels.client_deleted'));
     }
 }

@@ -26,6 +26,8 @@ return [
     'voorbeeldpostcode' => 'bijv. 2000 AB',
     'voorbeeldtelefoonnummer' => 'bijv. 0612345678',
 
+    'voorbeeldclient' => 'bijv. Pietje Visser',
+
 
     
     'name' => 'Naam',
@@ -40,8 +42,8 @@ return [
 
     'admin_delete_request' => 'Weet je zeker dat je deze admin wilt verwijderen?',
     'daycare_delete_request' => 'Weet je zeker dat je deze Daycare wilt verwijderen?',
-    'chauffeur_delete_request' => 'Weet je zeker dat je deze admin wilt verwijderen?',
-    'client_delete_request' => 'Weet je zeker dat je deze admin wilt verwijderen?',
+    'chauffeur_delete_request' => 'Weet je zeker dat je deze chauffeur wilt verwijderen?',
+    'client_delete_request' => 'Weet je zeker dat je deze client wilt verwijderen?',
 
     'daycare_created' => 'Dagbesteding met succes toegevoegd!',
     'daycare_updated' => 'Dagbesteding met succes gewijzigd!',
@@ -51,9 +53,9 @@ return [
     'admin_updated' => 'Admin met succes gewijzigd!',
     'admin_deleted' => 'Admin met succes verwijdert!',
 
-    'client_created' => 'Client met succes toegevoegd!',
-    'client_updated' => 'Client met succes gewijzigd!',
-    'client_deleted' => 'Client met succes verwijdert!',
+    'client_created' => 'Cliënt met succes toegevoegd!',
+    'client_updated' => 'Cliënt met succes gewijzigd!',
+    'client_deleted' => 'Cliënt met succes verwijdert!',
 
     'chauffeur_created' => 'chauffeur met succes toegevoegd!',
     'chauffeur_updated' => 'chauffeur met succes gewijzigd!',

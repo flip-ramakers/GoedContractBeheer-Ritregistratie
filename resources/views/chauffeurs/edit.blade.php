@@ -24,12 +24,12 @@
             @method('PUT')
 
             <div class="mb-3">
-                <label for="Name">{{ __('labels.name') }}<span class="text-danger">*</span></label>
+                <label for="Name">{{ __('labels.name') }}<span class="text-danger">{{__('labels.star')}}</span></label>
                 <input type="text" class="form-control w-100" name="name" id="Name"
                     value="{{ old('name', $chauffeur->name) }}" placeholder="Piet de Vries" required>
             </div>
             <div class="mb-3">
-                <label for="Email">{{ __('labels.email') }}<span class="text-danger">*</span></label>
+                <label for="Email">{{ __('labels.email') }}<span class="text-danger">{{__('labels.star')}}</span></label>
                 <input type="email" class="form-control w-100" name="email" id="Email"
                     value="{{ old('email', $chauffeur->email) }}" placeholder="{{ __('labels.email') }}" required>
             </div>

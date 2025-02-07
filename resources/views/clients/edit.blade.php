@@ -22,7 +22,7 @@
         @method('PUT') 
 
         <div class="mb-3">
-            <label for="name">{{ __('labels.name') }}<span class="text-danger">*</span></label>
+            <label for="name">{{ __('labels.name') }}<span class="text-danger">{{__('labels.star')}}</span></label>
             <input type="text" class="form-control" name="name" id="name"
                 value="{{ old('name', $client->name) }}" required>
         </div>
@@ -34,19 +34,19 @@
         </div>
 
         <div class="mb-3">
-            <label for="postal_code">{{ __('labels.postal_code') }}<span class="text-danger">*</span></label>
+            <label for="postal_code">{{ __('labels.postal_code') }}<span class="text-danger">{{__('labels.star')}}</span></label>
             <input type="text" class="form-control" name="postal_code" id="postal_code"
                 value="{{ old('postal_code', $client->postal_code) }}" required>
         </div>
 
         <div class="mb-3">
-            <label for="city">{{ __('labels.city') }}<span class="text-danger">*</span></label>
+            <label for="city">{{ __('labels.city') }}<span class="text-danger">{{__('labels.star')}}</span></label>
             <input type="text" class="form-control" name="city" id="city"
                 value="{{ old('city', $client->city) }}" required>
         </div>
 
         <div class="mb-3">
-            <label for="telephone">{{ __('labels.telephone') }}<span class="text-danger">*</span></label>
+            <label for="telephone">{{ __('labels.telephone') }}<span class="text-danger">{{__('labels.star')}}</span></label>
             <input type="text" class="form-control" name="telephone" id="telephone"
                 value="{{ old('telephone', $client->telephone) }}" required>
         </div>

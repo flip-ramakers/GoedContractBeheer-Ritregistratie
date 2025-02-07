@@ -18,12 +18,12 @@
             <h1 class="h3 mb-3 fw-normal">{{ __('labels.chauffeurs') }} {{ __('labels.create') }}</h1>
 
             <div class="mb-3">
-                <label for="Name">{{ __('labels.name') }}<span class="text-danger">*</span></label>
+                <label for="Name">{{ __('labels.name') }}<span class="text-danger">{{ __('labels.star') }}</span></label>
                 <input type="text" class="form-control w-100" name="name" id="Name" placeholder="Piet de Vries" required>
             </div>
 
             <div class="mb-3">
-                <label for="Email">{{ __('labels.email') }}<span class="text-danger">*</span></label>
+                <label for="Email">{{ __('labels.email') }}<span class="text-danger">{{__('labels.star')}}</span></label>
                 <input type="email" class="form-control w-100" name="email" id="Email" placeholder="{{ __('labels.email') }}" required>
             </div>
 

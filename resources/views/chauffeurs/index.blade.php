@@ -14,7 +14,7 @@
                 <th>{{ __('labels.daycares') }}</th>
                 <th>{{ __('labels.actions') }}</th>
             </tr>
-        </thead>
+    </thead>
         <tbody>
             @foreach ($chauffeurs as $chauffeur)
                 <tr>
@@ -32,7 +32,7 @@
                             <a href="{{ route('chauffeurs.edit', $chauffeur->id) }}"
                                 class="btn btn-dark me-2">{{ __('labels.edit') }}</a>
                             <form action="{{ route('chauffeurs.destroy', $chauffeur->id) }}" method="POST"
-                                onsubmit="return confirm('Weet je zeker dat je deze chauffeur wilt verwijderen?');">
+                                onsubmit="return confirm('{{ __('labels.chauffeur_delete_request') }} {{ $chauffeur->name }}?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">{{ __('labels.delete') }}</button>

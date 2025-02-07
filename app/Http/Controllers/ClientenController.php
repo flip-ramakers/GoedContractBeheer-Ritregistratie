@@ -21,12 +21,7 @@ class ClientenController extends Controller
 
     public function store(StoreClientRequest $request)
     {
-        // dd($request->validated());
-
         Client::create($request->validated());
-
-        // Client::create($request->all());
-
         return redirect()->route('clients.index')->with('success', __('labels.client_created'));
     }
 

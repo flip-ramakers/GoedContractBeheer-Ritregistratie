@@ -29,7 +29,7 @@ class ChauffeurController extends Controller
             $chauffeur->daycares()->sync($request->input('daycares'));
         }
 
-        return redirect()->route('chauffeurs.index')->with('success', 'Chauffeur created successfully!');
+        return redirect()->route('chauffeurs.index')->with('success', __('labels.chauffeur_created'));
     }
 
     public function edit(Chauffeur $chauffeur)
@@ -46,12 +46,12 @@ class ChauffeurController extends Controller
             $chauffeur->daycares()->sync($request->input('daycares'));
         }
 
-        return redirect()->route('chauffeurs.index')->with('success', 'Chauffeur updated successfully!');
+        return redirect()->route('chauffeurs.index')->with('success', __('labels.chauffeur_updated'));
     }
 
     public function destroy(Chauffeur $chauffeur)
     {
         $chauffeur->delete();
-        return redirect()->route('chauffeurs.index')->with('success', 'Chauffeur deleted successfully!');
+        return redirect()->route('chauffeurs.index')->with('success', __('labels.chauffeur_deleted'));
     }
 }

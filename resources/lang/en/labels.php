@@ -2,7 +2,7 @@
 return [
     'admin' => 'Admin',
     'admins' => 'Admins',
-    'clienten' => 'Cliënten',
+    'clients' => 'Cliënten',
     'password' => 'Wachtwoord',
     'chauffeurs' => 'Chauffeurs',
     'daycares' => 'Dagbestedingen',

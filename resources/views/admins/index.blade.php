@@ -14,7 +14,7 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody> 
             @foreach ($admins as $admin)
                 <tr>
                     <td>{{ $admin->name }}</td>

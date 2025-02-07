@@ -18,7 +18,7 @@ Route::prefix('admin')->group(function(){
         
         Route::resource('chauffeurs', ChauffeurController::class);
         Route::resource('daycares', DaycaresController::class);
-        Route::resource('clienten', ClientenController::class);
+        Route::resource('clients', ClientenController::class);
         
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     });

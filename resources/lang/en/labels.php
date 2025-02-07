@@ -35,6 +35,8 @@ return [
     'telephone' => 'Telefoonnummer',
     'postal_code' => 'Postcode',
 
+    'linked_daycares'=> 'Geen gekoppelde dagbestedingen',
+
 
     'admin_delete_request' => 'Weet je zeker dat je deze admin wilt verwijderen?',
     'daycare_delete_request' => 'Weet je zeker dat je deze Daycare wilt verwijderen?',

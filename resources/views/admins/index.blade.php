@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="d-flex justify-content-between align-items-center  mb-4" style="margin-top:25px;">
-        <h2 class="mb-0">Admins</h2>
+        <h2 class="mb-0">{{ __('labels.admins') }}</h2>
         <a href="{{ route('admins.create') }}" class="btn btn-success">Toevoegen</a>
     </div>
 

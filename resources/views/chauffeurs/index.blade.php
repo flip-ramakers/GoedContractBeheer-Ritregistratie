@@ -18,7 +18,7 @@
         <tr>
             <th>{{ __('labels.name') }}</th>
             <th>{{ __('labels.email') }}</th>
-            <th>{{ __('labels.daycares') }}</th> <!-- ✅ Toegevoegd -->
+            <th>{{ __('labels.daycares') }}</th>
             <th>{{ __('labels.actions') }}</th>
         </tr>
     </thead>
@@ -31,7 +31,8 @@
                     @if($chauffeur->daycares->isNotEmpty())
                         {{ $chauffeur->daycares->pluck('name')->implode(', ') }}
                     @else
-                        <em>Geen gekoppelde daycares</em>
+                        <em>{{__('labels.linked_daycares')}}</em>
+
                     @endif
                 </td>
                 <td>

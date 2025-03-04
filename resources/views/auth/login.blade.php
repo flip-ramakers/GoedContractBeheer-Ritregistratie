@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Goed Contract Beheer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -17,9 +17,9 @@
             @csrf
             <img class="mb-4" src="{{ asset('images/Goedcontractbeheer.jpg') }}" alt="" width=""
                 height="77">
-
             <div>
-                <label for="">{{ __('labels.email') }}<span class="text-danger">{{ __('labels.star') }}</span></label>
+                <label for="">{{ __('labels.email') }}<span
+                        class="text-danger">{{ __('labels.star') }}</span></label>
                 <div class="">
                     <input type="email" class="form-control mb-3 @error('email') is-invalid @enderror" name="email"
                         id="floatingInput" placeholder="{{ __('labels.voorbeeldmail') }}" value="{{ old('email') }}">
@@ -28,7 +28,8 @@
                     @enderror
                 </div>
 
-                <label for="">{{ __('labels.password') }}<span class="text-danger">{{ __('labels.star') }}</span></label>
+                <label for="">{{ __('labels.password') }}<span
+                        class="text-danger">{{ __('labels.star') }}</span></label>
                 <div class="">
                     <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
                         id="" placeholder="{{ __('labels.password') }}">

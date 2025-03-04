@@ -28,8 +28,6 @@ return [
 
     'voorbeeldclient' => 'bijv. Pietje Visser',
 
-
-    
     'name' => 'Naam',
     'email' => 'Email',
     'city' => 'Stad',
@@ -38,7 +36,6 @@ return [
     'postal_code' => 'Postcode',
 
     'linked_daycares'=> 'Geen gekoppelde dagbestedingen',
-
 
     'admin_delete_request' => 'Weet je zeker dat je deze admin wilt verwijderen?',
     'daycare_delete_request' => 'Weet je zeker dat je deze Daycare wilt verwijderen?',

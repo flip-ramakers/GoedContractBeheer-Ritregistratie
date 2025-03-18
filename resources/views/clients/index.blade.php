@@ -14,6 +14,7 @@
                 <th>{{ __('labels.postal_code') }}</th>
                 <th>{{ __('labels.city') }}</th>
                 <th>{{ __('labels.telephone') }}</th>
+                <th>{{ __('labels.daycares') }}</th> <!-- Added Daycares column -->
                 <th>{{ __('labels.actions') }}</th>
             </tr>
         </thead>
@@ -25,6 +26,11 @@
                     <td>{{ $client->postal_code }}</td>
                     <td>{{ $client->city }}</td>
                     <td>{{ $client->telephone }}</td>
+                    <td>
+                        @foreach ($client->daycares as $daycare)
+                        <span>{{ $daycare->name }} ({{ $daycare->city }})</span><br>
+                        @endforeach
+                    </td>
                     <td>
                         <div class="d-flex justify-content-end">
                             <a href="{{ route('clients.edit', ['client' => $client->id]) }}" class="btn btn-dark me-2">{{ __('labels.edit') }}</a>

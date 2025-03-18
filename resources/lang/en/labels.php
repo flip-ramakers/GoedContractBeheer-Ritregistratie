@@ -2,10 +2,15 @@
 return [
     'admin' => 'Admin',
     'admins' => 'Admins',
+    'client' => 'Cliënt',
     'clients' => 'Cliënten',
     'password' => 'Wachtwoord',
     'chauffeurs' => 'Chauffeurs',
+    'daycare' => 'Dagbesteding',
     'daycares' => 'Dagbestedingen',
+
+    'from' => 'van:',
+    'to' => 'Naar:',
 
     'star' => '*',
     'back' => 'Terug',
@@ -34,6 +39,9 @@ return [
     'street_addres' => 'Straat + huisnmr',
     'telephone' => 'Telefoonnummer',
     'postal_code' => 'Postcode',
+    'comments' => 'Opmerkingen',
+    'steppedin' => 'Instap',
+    'notsteppedin' => 'Niet ingestapt',
 
     'linked_daycares'=> 'Geen gekoppelde dagbestedingen',
 
@@ -57,4 +65,6 @@ return [
     'chauffeur_created' => 'chauffeur met succes toegevoegd!',
     'chauffeur_updated' => 'chauffeur met succes gewijzigd!',
     'chauffeur_deleted' => 'chauffeur met succes verwijdert!',
+
+    'email_message' => 'Please click the link sent to your email to finish logging in.',
 ];

@@ -16,4 +16,9 @@ class Client extends Model
         'city',
         'telephone',
     ];
+
+    public function daycares()
+    {
+        return $this->belongsToMany(Daycare::class, 'clients_daycare');
+    }
 }

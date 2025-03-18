@@ -27,6 +27,8 @@ class StoreClientRequest extends FormRequest
             'postal_code' => 'required|string|max:7',
             'city' => 'required|string|max:100',
             'telephone' => 'required|string|max:10',
+            'daycares' => 'nullable|array',
+            'daycares.*' => 'exists:daycares,id',
         ];
     }
 }

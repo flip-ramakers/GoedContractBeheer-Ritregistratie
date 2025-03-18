@@ -50,6 +50,18 @@
                            placeholder="{{ __('labels.voorbeeldtelefoonnummer') }}" required>
                 </div>
 
+                <div class="mb-3">
+                    <label>{{ __('labels.daycares') }}</label><br>
+                    @foreach ($daycares as $daycare)
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="daycares[]" value="{{ $daycare->id }}" id="daycare-{{ $daycare->id }}">
+                            <label class="form-check-label" for="daycare-{{ $daycare->id }}">
+                                {{ $daycare->name }} ({{ $daycare->city }})
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+
                 <button class="btn btn-success mb-4 mt-4 me-2 py-2" type="submit">{{ __('labels.save') }}</button>
             </form>
         </div>

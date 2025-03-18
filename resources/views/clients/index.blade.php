@@ -14,7 +14,7 @@
                 <th>{{ __('labels.postal_code') }}</th>
                 <th>{{ __('labels.city') }}</th>
                 <th>{{ __('labels.telephone') }}</th>
-                <th>{{ __('labels.daycares') }}</th> <!-- Added Daycares column -->
+                <th>{{ __('labels.daycares') }}</th>
                 <th>{{ __('labels.actions') }}</th>
             </tr>
         </thead>

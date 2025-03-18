@@ -14,6 +14,9 @@ class Daycare extends Model
     public function chauffeurs()
     {
         return $this->belongsToMany(Chauffeur::class, 'chauffeur_daycare');
-
+    }
+    public function clients()
+    {
+        return $this->belongsToMany(Client::class);
     }
 }

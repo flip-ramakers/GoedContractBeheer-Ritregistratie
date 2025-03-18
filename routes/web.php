@@ -48,7 +48,6 @@ Route::prefix('chauffeur')->group(function () {
     Route::get('/verify-login/{token}', [MobileLoginController::class, 'verifyLogin'])->name('verify-login');
 
     Route::post('/clienten', [MobileClientenController::class, 'index'])->name('chauffeur.clienten');
-    Route::get('/mobile-client/{client}', [MobileClientenController::class, 'show'])->name('mobile-client.show');
     Route::post('/mobile-client', [MobileClientenController::class, 'show'])->name('chauffeur.clienten.show');
     Route::get('/chauffeur/mobile-client/{client?}', [MobileClientenController::class, 'show'])->name('mobile-client.show');
 });

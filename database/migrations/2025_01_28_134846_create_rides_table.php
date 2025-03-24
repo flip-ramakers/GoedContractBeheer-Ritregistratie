@@ -13,19 +13,16 @@ return new class extends Migration
     {
         Schema::create('rides', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('client_id');
-            $table->foreignId('daycare_id');
-            $table->longText('remark');
-            $table->timestamp('start');
-            $table->timestamp('end');
-            $table->timestamp('refusal');
+            $table->foreignId('client_id')->constrained()->onDelete('cascade');
+            $table->foreignId('daycare_id')->constrained()->onDelete('cascade');
+            $table->text('remarks')->nullable();
+            $table->enum('status', ['steppedin', 'notsteppedin']);
+            $table->timestamp('start')->nullable();
             $table->timestamps();
         });
+        
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('rides');

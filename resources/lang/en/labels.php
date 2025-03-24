@@ -8,21 +8,25 @@ return [
     'chauffeurs' => 'Chauffeurs',
     'daycare' => 'Dagbesteding',
     'daycares' => 'Dagbestedingen',
+    'rides' => 'Ritten',
+    'ride' => 'Rit',
 
     'from' => 'van:',
     'to' => 'Naar:',
 
     'star' => '*',
     'back' => 'Terug',
-    'actions' => 'Acties',
-    'edit' => 'Bewerken',
+    'view' => 'bekijk',
     'save' => 'Opslaan',
+    'edit' => 'Bewerken',
+    'signin' => 'Log in',
+    'actions' => 'Acties',
+    'details' => 'Details',
+    'signout' => 'Log uit',
     'create' => 'Toevoegen',
     'delete' => 'Verwijder',
     'confirm' => 'Bevestig',
-    'signin' => 'Log in',
-    'signout' => 'Log uit',
-
+    
     'voorbeeldmail' => 'bijv. name@example.com',
     'voorbeeldnaam' => 'bijv. Piet de vries',
     'voorbeelddagbesteding' => 'bijv. De zonnebloem',
@@ -30,21 +34,26 @@ return [
     'voorbeeldstad' => 'bijv. Velserbroek',
     'voorbeeldpostcode' => 'bijv. 2000 AB',
     'voorbeeldtelefoonnummer' => 'bijv. 0612345678',
-
+    
     'voorbeeldclient' => 'bijv. Pietje Visser',
-
+    
     'name' => 'Naam',
     'email' => 'Email',
     'city' => 'Stad',
     'street_addres' => 'Straat + huisnmr',
     'telephone' => 'Telefoonnummer',
     'postal_code' => 'Postcode',
-    'comments' => 'Opmerkingen',
     'steppedin' => 'Instap',
     'notsteppedin' => 'Niet ingestapt',
+    'start_time' => 'Start tijd',
+    'end_time' => 'Eind tijd',
+    'status' => 'Status',
+    'remarks' => 'Opmerkingen',
+    'noremarks' => 'Geen opmerkingen',
+    'notstarted' => '',
 
     'linked_daycares'=> 'Geen gekoppelde dagbestedingen',
-
+    
     'admin_delete_request' => 'Weet je zeker dat je deze admin wilt verwijderen?',
     'daycare_delete_request' => 'Weet je zeker dat je deze Daycare wilt verwijderen?',
     'chauffeur_delete_request' => 'Weet je zeker dat je deze chauffeur wilt verwijderen?',

@@ -3,23 +3,29 @@
 @section('content')
     <div class="container mt-5">
 
-        {{-- <form action="{{ route('mobile-client.show', ['client' => request('client_id', $client->id)]) }}" method="GET">
-        <div class="mb-3">
-            <label class="form-label">{{ __('labels.client') }}</label>
-            <div class="btn-group" role="group" aria-label="{{ __('labels.client') }}">
-                @foreach ($clients as $c)
-                    <a href="{{ route('mobile-client.show', ['client' => $c->id]) }}" class="btn btn-outline-primary {{ $c->id == request('client_id', $client->id) ? 'active' : '' }}">
-                        {{ $c->name }}
-                    </a>
-                @endforeach
-            </div>
-        </div>
-    </form> --}}
-        <form class="d-grid gap-2" action="{{ route('chauffeur.clienten') }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-dark">{{ __('labels.back') }}</button>
-        </form>
+        @if (!isset($selectedClient))
+            <form class="d-grid gap-2" action="{{ route('chauffeur.clienten') }}" method="POST" id="clientForm">
+                @csrf
+                <div class="mb-3">
+                    <label for="client" class="form-label">{{ __('labels.client') }}</label>
+                    <select id="client" name="client_id" class="form-select" onchange="submitForm()">
+                        <option value=""selected>{{ __('labels.back') }}</option>
 
+                        <option value="{{ $client->id }}" selected>{{ $client->name }}</option>
+                    </select>
+                </div>
+            </form>
+
+            <script>
+                function submitForm() {
+                    let form = document.getElementById('clientForm');
+                    form.method = 'POST';
+                    form.submit();
+                }
+            </script>
+        @else
+            <p><strong>Selected Client:</strong> {{ $selectedClient->name }}</p>
+        @endif
 
         @php
             $clientAddress = $client;
@@ -55,15 +61,30 @@
             @endif
         </div>
 
-        <div class="mb-3">
-            <label for="remarks" class="form-label">{{ __('labels.comments') }}</label>
-            <textarea id="remarks" name="remarks" class="form-control" rows="4"></textarea>
-        </div>
-
-        <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-success">{{ __('labels.steppedin') }}</button>
-            <button type="button" class="btn btn-warning">{{ __('labels.notsteppedin') }}</button>
-        </div>
+        <form action="{{ route('rides.store') }}" method="POST">
+            @csrf
+        
+            <input type="hidden" name="client_id" value="{{ $client->id }}">
+        
+            @if (isset($daycare))
+                <input type="hidden" name="daycare_id" value="{{ $daycare->id }}">
+            @endif
+        
+            <div class="mb-3">
+                <label for="remark" class="form-label">{{ __('labels.remarks') }}</label>
+                <textarea id="remarks" name="remarks" class="form-control" rows="4"></textarea>
+            </div>
+        
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success" name="status" value="steppedin">
+                    {{ __('labels.steppedin') }}
+                </button>
+                <button type="submit" class="btn btn-warning" name="status" value="notsteppedin">
+                    {{ __('labels.notsteppedin') }}
+                </button>
+            </div>
         </form>
+        
+
     </div>
 @endsection

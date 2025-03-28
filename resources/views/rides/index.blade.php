@@ -26,7 +26,7 @@
                     <td>{{ $ride->start }}</td>
                     <td>
                         <div class="d-flex justify-content-end">
-                            <a href="{{ route('rides.show', $ride->id) }}" class="btn btn-dark me-2">{{ __('labels.view') }}</a>
+                            <a href="{{ route('rides.show', ['ride' => $ride->id]) }}" class="btn btn-dark me-2">{{ __('labels.view') }}</a>
                             <form action="{{ route('rides.destroy', $ride->id) }}" method="POST" onsubmit="return confirm('{{ __('labels.ride_delete_request') }} #{{ $ride->id }}?');">
                                 @csrf
                                 @method('DELETE')

@@ -30,5 +30,4 @@ class MobileClientenController extends Controller
     
         return view('mobile-client.show', compact('client', 'clients', 'daycares'));
     }
-    
 }

@@ -61,30 +61,46 @@
             @endif
         </div>
 
-        <form action="{{ route('rides.store') }}" method="POST">
-            @csrf
-        
-            <input type="hidden" name="client_id" value="{{ $client->id }}">
-        
-            @if (isset($daycare))
-                <input type="hidden" name="daycare_id" value="{{ $daycare->id }}">
-            @endif
-        
-            <div class="mb-3">
-                <label for="remark" class="form-label">{{ __('labels.remarks') }}</label>
-                <textarea id="remarks" name="remarks" class="form-control" rows="4"></textarea>
-            </div>
-        
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-success" name="status" value="steppedin">
-                    {{ __('labels.steppedin') }}
-                </button>
-                <button type="submit" class="btn btn-warning" name="status" value="notsteppedin">
-                    {{ __('labels.notsteppedin') }}
-                </button>
-            </div>
-        </form>
-        
+        @php
+        $clientId = $client->id;
+        $isRideActive = session("ride_active_$clientId") && now()->lessThan(session("ride_active_$clientId"));
+    @endphp
+    
+    @php
+    $latestRide = \App\Models\Ride::where('client_id', $client->id)->latest()->first();
+    $isSteppedIn = $latestRide && in_array($latestRide->status, ['steppedin', 'notsteppedin']);
+@endphp
 
+<form action="{{ route('rides.store') }}" method="POST">
+    @csrf
+    <input type="hidden" name="client_id" value="{{ $client->id }}">
+
+    @if (isset($daycare))
+        <input type="hidden" name="daycare_id" value="{{ $daycare->id }}">
+    @endif
+
+    <div class="mb-3">
+        <label for="remark" class="form-label">{{ __('labels.remarks') }}</label>
+        <textarea id="remarks" name="remarks" class="form-control" rows="4">{{ $latestRide->remarks ?? '' }}</textarea>
+    </div>
+
+    <div class="d-grid gap-2">
+        @if ($isSteppedIn)
+            <button type="submit" class="btn btn-danger" name="status" value="steppedout">
+                {{ __('labels.exit') }}
+            </button>
+        @else
+            <button type="submit" class="btn btn-success" name="status" value="steppedin">
+                {{ __('labels.entry') }}
+            </button>
+            <button type="submit" class="btn btn-warning" name="status" value="notsteppedin">
+                {{ __('labels.not_boarded') }}
+            </button>
+        @endif
+    </div>
+</form>
+
+    
+    
     </div>
 @endsection

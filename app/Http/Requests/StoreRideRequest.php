@@ -15,10 +15,9 @@ class StoreRideRequest extends FormRequest
     {
         return [
             'client_id' => 'required|exists:clients,id',
-            'daycare_id' => 'required|exists:daycares,id',
-            'remark' => 'nullable|string',
-            'status' => 'required|in:steppedin,notsteppedin',
-            'status' => 'required|in:steppedin,notsteppedin',
+            'daycare_id' => 'nullable|exists:daycares,id',
+            'remarks' => 'nullable|string|max:255', 
+            'status' => 'required|string|in:steppedin,steppedout,notsteppedin',
         ];
     }
 
@@ -29,4 +28,3 @@ class StoreRideRequest extends FormRequest
         ]);
     }
 }
-

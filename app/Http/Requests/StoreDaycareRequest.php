@@ -29,4 +29,11 @@ class StoreDaycareRequest extends FormRequest
             'telephone' => 'required|string|max:10',
         ];
     }
+    public function messages()
+    {
+        return [
+            'telephone.max' =>  __('labels.telephone_max'),
+            'postal_code.max' =>  __('labels.postal_code_max'),
+        ];
+    }
 }

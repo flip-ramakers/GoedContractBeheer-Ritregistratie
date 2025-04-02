@@ -32,7 +32,6 @@ return [
     'steppedout' => 'Uitgestapt',
     'steppedin' => 'Ingestapt',
 
-    
     'voorbeeldmail' => 'bijv. name@example.com',
     'voorbeeldnaam' => 'bijv. Piet de vries',
     'voorbeelddagbesteding' => 'bijv. De zonnebloem',
@@ -49,8 +48,8 @@ return [
     'street_addres' => 'Straat + huisnmr',
     'telephone' => 'Telefoonnummer',
     'postal_code' => 'Postcode',
-    'start_time' => 'Start tijd',
-    'end_time' => 'Eind tijd',
+    'start_time' => 'Start Tijd',
+    'end_time' => 'Eind Tijd',
     'status' => 'Status',
     'remarks' => 'Opmerkingen',
     'noremarks' => 'Geen opmerkingen',
@@ -61,7 +60,6 @@ return [
     'chauffeur_delete_request' => 'Weet je zeker dat je deze chauffeur wilt verwijderen?',
     'client_delete_request' => 'Weet je zeker dat je deze client wilt verwijderen?',
     'ride_delete_request' => 'Weet je zeker dat je deze rit wilt verwijderen?',
-    
 
     'daycare_created' => 'Dagbesteding met succes toegevoegd!',
     'daycare_updated' => 'Dagbesteding met succes gewijzigd!',
@@ -75,9 +73,15 @@ return [
     'client_updated' => 'Cliënt met succes gewijzigd!',
     'client_deleted' => 'Cliënt met succes verwijdert!',
 
-    'chauffeur_created' => 'chauffeur met succes toegevoegd!',
-    'chauffeur_updated' => 'chauffeur met succes gewijzigd!',
-    'chauffeur_deleted' => 'chauffeur met succes verwijdert!',
+    'chauffeur_created' => 'Chauffeur met succes toegevoegd!',
+    'chauffeur_updated' => 'Chauffeur met succes gewijzigd!',
+    'chauffeur_deleted' => 'Chauffeur met succes verwijdert!',
+
+    'telephone_max' => 'Het telefoonnummer mag niet langer zijn dan 10 karakters!',
+    'postal_code_max' => 'De postcode mag niet langer zijn dan 7 karakters!',
+
+    'ride_status' => 'Ritstatus bijgewerkt',
+    'ride_deleted' => 'Rit met succes verwijdert!',
 
     'email_message' => 'Please click the link sent to your email to finish logging in.',
 ];

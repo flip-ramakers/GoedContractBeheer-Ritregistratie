@@ -19,14 +19,14 @@ class RideController extends Controller
     {
         $data = $request->validated();
         Log::info('Request Data:', $data);
-    
+
         $clientId = $data['client_id'];
-    
+
         $ride = Ride::where('client_id', $clientId)
             ->whereNull('end')
             ->latest()
             ->first();
-    
+
         if ($data['status'] === 'notsteppedin') {
             Ride::create([
                 'client_id' => $clientId,
@@ -34,7 +34,7 @@ class RideController extends Controller
                 'remarks' => $data['remarks'] ?? null,
                 'status' => 'notsteppedin',
                 'start' => now(),
-                'end' => now(), 
+                'end' => now(),
             ]);
         } elseif (!$ride) {
             Ride::create([
@@ -48,19 +48,20 @@ class RideController extends Controller
         } else {
             $updateData = [
                 'status' => $data['status'],
-                'remarks' => $data['remarks'] ?? $ride->remarks,
+                'remarks' => $data['remarks'] ?? $ride->remarks, 
             ];
-    
+
             if ($data['status'] === 'steppedout') {
-                $updateData['end'] = now(); 
+                $updateData['end'] = now();
             }
-    
+
             $ride->update($updateData);
         }
-    
-        return redirect()->route('chauffeur.clienten')->with('success', 'Ritstatus bijgewerkt.');
+
+        return redirect()->route('chauffeur.clienten')->with('success', __('labels.ride_status'));
     }
-    
+
+
 
     public function show($rideId)
     {
@@ -73,6 +74,6 @@ class RideController extends Controller
         $ride = Ride::findOrFail($rideId);
         $ride->delete();
 
-        return redirect()->route('rides.index')->with('success', 'Ride deleted successfully.');
+        return redirect()->route('rides.index')->with('success', __('labels.ride_deleted'));
     }
 }

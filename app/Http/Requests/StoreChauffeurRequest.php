@@ -27,4 +27,5 @@ class StoreChauffeurRequest extends FormRequest
             'daycares' => 'array|exists:daycares,id',       
         ];
     }
+    
 }

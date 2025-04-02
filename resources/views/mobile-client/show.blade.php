@@ -24,7 +24,7 @@
                 }
             </script>
         @else
-            <p><strong>Selected Client:</strong> {{ $selectedClient->name }}</p>
+            <p><strong></strong> {{ $selectedClient->name }}</p>
         @endif
 
         @php
@@ -37,7 +37,7 @@
 
         <div class="mb-3">
             <label class="form-label"><strong>{{ __('labels.from') }}</strong></label>
-            <p>{{ $clientAddress->name }}</p>
+            {{-- <p>{{ $clientAddress->name }}</p> --}}
             <p><a href="https://www.google.com/maps/search/?api=1&query={{ $clientFullAddress }}"
                     target="_blank">{{ $clientAddress->street_address }}, {{ $clientAddress->postal_code }}
                     {{ $clientAddress->city }}</a></p>
@@ -65,6 +65,7 @@
             $latestRide = \App\Models\Ride::where('client_id', $client->id)->latest()->first();
             $isSteppedIn = $latestRide && $latestRide->status === 'steppedin';
             $isNotSteppedIn = $latestRide && $latestRide->status === 'notsteppedin';
+            $remarks = $latestRide && is_null($latestRide->end) ? $latestRide->remarks : '';
         @endphp
 
         <form action="{{ route('rides.store') }}" method="POST">
@@ -77,7 +78,7 @@
 
             <div class="mb-3">
                 <label for="remark" class="form-label">{{ __('labels.remarks') }}</label>
-                <textarea id="remarks" name="remarks" class="form-control" rows="4">{{ $latestRide->remarks ?? '' }}</textarea>
+                <textarea id="remarks" name="remarks" class="form-control" rows="4">{{ $remarks }}</textarea>
             </div>
 
             <div class="d-grid gap-2">

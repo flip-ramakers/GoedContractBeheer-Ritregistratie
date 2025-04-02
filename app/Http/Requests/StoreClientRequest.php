@@ -31,4 +31,10 @@ class StoreClientRequest extends FormRequest
             'daycares.*' => 'exists:daycares,id',
         ];
     }
+    public function messages()
+    {
+        return [
+            'telephone.max' =>  __('labels.telephone_max'),
+        ];
+    }
 }

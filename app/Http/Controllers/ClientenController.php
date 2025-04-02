@@ -23,9 +23,6 @@ class ClientenController extends Controller
 
     public function store(StoreClientRequest $request)
     {
-        // Client::create($request->validated());
-
-
         $client = Client::create($request->only(['name', 'street_address', 'postal_code', 'city', 'telephone']));
 
         if ($request->has('daycares')) {
@@ -43,11 +40,6 @@ class ClientenController extends Controller
 
     public function update(StoreClientRequest $request, Client $client)
     {
-        // $client->update($request->validated());
-
-        // $client->update($request->all());
-
-        // return redirect()->route('clients.index')->with('success', __('labels.client_updated'));
 
         $client->update($request->only(['name', 'street_address', 'postal_code', 'city', 'telephone']));
 

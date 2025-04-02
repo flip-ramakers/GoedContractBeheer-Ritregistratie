@@ -20,7 +20,6 @@ return new class extends Migration
             $table->timestamp('start')->nullable();
             $table->timestamps();
         });
-        
     }
 
     public function down(): void

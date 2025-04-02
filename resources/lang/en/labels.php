@@ -26,6 +26,12 @@ return [
     'create' => 'Toevoegen',
     'delete' => 'Verwijder',
     'confirm' => 'Bevestig',
+    'entry' => 'Instappen',
+    'exit' => 'Uitstappen',
+    'notsteppedin' => 'Niet ingestapt',
+    'steppedout' => 'Uitgestapt',
+    'steppedin' => 'Ingestapt',
+
     
     'voorbeeldmail' => 'bijv. name@example.com',
     'voorbeeldnaam' => 'bijv. Piet de vries',
@@ -43,21 +49,19 @@ return [
     'street_addres' => 'Straat + huisnmr',
     'telephone' => 'Telefoonnummer',
     'postal_code' => 'Postcode',
-    'steppedin' => 'Instap',
-    'notsteppedin' => 'Niet ingestapt',
     'start_time' => 'Start tijd',
     'end_time' => 'Eind tijd',
     'status' => 'Status',
     'remarks' => 'Opmerkingen',
     'noremarks' => 'Geen opmerkingen',
-    'notstarted' => '',
 
     'linked_daycares'=> 'Geen gekoppelde dagbestedingen',
-    
     'admin_delete_request' => 'Weet je zeker dat je deze admin wilt verwijderen?',
     'daycare_delete_request' => 'Weet je zeker dat je deze Daycare wilt verwijderen?',
     'chauffeur_delete_request' => 'Weet je zeker dat je deze chauffeur wilt verwijderen?',
     'client_delete_request' => 'Weet je zeker dat je deze client wilt verwijderen?',
+    'ride_delete_request' => 'Weet je zeker dat je deze rit wilt verwijderen?',
+    
 
     'daycare_created' => 'Dagbesteding met succes toegevoegd!',
     'daycare_updated' => 'Dagbesteding met succes gewijzigd!',

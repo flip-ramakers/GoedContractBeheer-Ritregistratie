@@ -27,30 +27,40 @@ class RideController extends Controller
             ->latest()
             ->first();
     
-        if (!$ride) {
+        if ($data['status'] === 'notsteppedin') {
             Ride::create([
                 'client_id' => $clientId,
                 'daycare_id' => $data['daycare_id'] ?? null,
-                'remarks' => !empty($data['remarks']) ? $data['remarks'] : null,
-                'status' => $data['status'] ?? 'steppedin',
+                'remarks' => $data['remarks'] ?? null,
+                'status' => 'notsteppedin',
                 'start' => now(),
-                'end' => $data['status'] === 'notsteppedin' ? now() : null,
+                'end' => now(), 
+            ]);
+        } elseif (!$ride) {
+            Ride::create([
+                'client_id' => $clientId,
+                'daycare_id' => $data['daycare_id'] ?? null,
+                'remarks' => $data['remarks'] ?? null,
+                'status' => 'steppedin',
+                'start' => now(),
+                'end' => null,
             ]);
         } else {
             $updateData = [
                 'status' => $data['status'],
-                'remarks' => $data['remarks'] ?? $ride->remarks, 
+                'remarks' => $data['remarks'] ?? $ride->remarks,
             ];
-            
-            if ($data['status'] === 'steppedout' || $data['status'] === 'notsteppedin') {
-                $updateData['end'] = now();
+    
+            if ($data['status'] === 'steppedout') {
+                $updateData['end'] = now(); 
             }
-            
+    
             $ride->update($updateData);
         }
     
         return redirect()->route('chauffeur.clienten')->with('success', 'Ritstatus bijgewerkt.');
     }
+    
 
     public function show($rideId)
     {

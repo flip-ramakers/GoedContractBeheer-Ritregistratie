@@ -31,7 +31,6 @@ Route::prefix('admin')->group(function () {
         Route::get('rides', [RideController::class, 'index'])->name('rides.index');
         Route::get('rides/{ride}', [RideController::class, 'show'])->name('rides.show');
         Route::delete('rides/{ride}', [RideController::class, 'destroy'])->name('rides.destroy');
-
     });
 
     Route::get('/login', [LoginController::class, 'show'])->name('login.show');
@@ -40,8 +39,7 @@ Route::prefix('admin')->group(function () {
 
 
 Route::prefix('chauffeur')->group(function () {
-    Route::group(['middleware' => ['mobile']], function () {
-    });
+    Route::group(['middleware' => ['mobile']], function () {});
     Route::get('/login', [MobileLoginController::class, 'showLoginform'])->name('login.show');
     Route::post('/login', [MobileLoginController::class, 'login'])->name('login');
     Route::get('/verify-login/{token}', [MobileLoginController::class, 'verifyLogin'])->name('verify-login');
@@ -49,9 +47,9 @@ Route::prefix('chauffeur')->group(function () {
     Route::match(['get', 'post'], '/clienten', [MobileClientenController::class, 'index'])->name('chauffeur.clienten');
     Route::post('/mobile-client', [MobileClientenController::class, 'show'])->name('chauffeur.clienten.show');
 
-    Route::match(['get', 'post'], 'chauffeur/mobile-client/{client?}', [RideController::class, 'show'])->name('mobile-client.show');
+    Route::get('/mobile-client/{client}', [MobileClientenController::class, 'show'])->name('mobile-client.show');
 
-    Route::post('chauffeur/mobile-client/{client?}', [RideController::class, 'show'])->name('mobile-client.show');
-    Route::post('rides', [RideController::class, 'store'])->name('rides.store');
+    Route::post('/rides', [RideController::class, 'store'])->name('rides.store');
 
+    Route::get('/rides/{ride}', [RideController::class, 'show'])->name('rides.show');
 });

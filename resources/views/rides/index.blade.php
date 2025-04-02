@@ -13,6 +13,7 @@
                 <th>{{ __('labels.daycare') }}</th>
                 <th>{{ __('labels.status') }}</th>
                 <th>{{ __('labels.start_time') }}</th>
+                <th>{{__('labels.end_time')}}</th>
                 <th>{{ __('labels.actions') }}</th>
             </tr>
         </thead>
@@ -24,6 +25,7 @@
                     <td>{{ $ride->daycare->name ?? '-' }}</td>
                     <td>{{ __('labels.' . $ride->status) }}</td>
                     <td>{{ $ride->start }}</td>
+                    <td>{{ $ride->end }}</td>
                     <td>
                         <div class="d-flex justify-content-end">
                             <a href="{{ route('rides.show', ['ride' => $ride->id]) }}" class="btn btn-dark me-2">{{ __('labels.view') }}</a>

@@ -13,6 +13,8 @@
             </li>
             <li><a href="{{ route('admins.index') }}" class="nav-link text-white px-2">{{ __('labels.admins') }}</a>
             </li>
+            <li><a href="{{ route('rides.index') }}"class="nav-link text-white px-2">{{ __('labels.rides') }}</a>
+            </li>
         </ul>
 
         <div class="text-end">

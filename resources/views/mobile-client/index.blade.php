@@ -3,9 +3,9 @@
 @section('content')
     <div class="container mt-5">
         <h2>{{ __('labels.clients') }}</h2>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="row row-cols-2 row-cols-md-2 g-4">
             @foreach ($clients as $client)
-                <div class="col">
+                <div class="col col-6">
                     <form action="{{ route('chauffeur.clienten.show') }}" method="POST">
                         @csrf
                         <input type="hidden" name="client_id" value="{{ $client->id }}">

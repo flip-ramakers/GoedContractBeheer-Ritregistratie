@@ -7,20 +7,19 @@ use App\Models\User;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 
-class MobileLoginController extends Controller
+class AuthController extends Controller
 {
-
-    public function showLoginForm()
+    public function showLogin()
     {
-        return view('mobile-login.login');
-    }    
+        return view('auth.login');
+    }
 
     public function login(Request $request)
     {
         $data = $request->validate([
             'email' => ['required', 'email', 'exists:chauffeurs,email'],
         ]);
-        Chauffeur::where('email', $data['email'])->first()->sendLoginLink();
+        Chauffeur::whereEmail($data['email'])->first()->sendLoginLink();
         session()->flash('success', true);
         return redirect()->back();
     }
@@ -30,8 +29,7 @@ class MobileLoginController extends Controller
         $token = \App\Models\LoginToken::whereToken(hash('sha256', $token))->firstOrFail();
         abort_unless($request->hasValidSignature() && $token->isValid(), 401);
         $token->consume();
-        auth()->guard('chauffeur')->login($token->chauffeur);
-
-        return redirect()->route('chauffeur.clienten');
+        Chauffeur::login($token->chauffeur);
+        return redirect('/');
     }
 }

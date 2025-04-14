@@ -1,19 +1,37 @@
 @extends('layouts.app')
+
 @section('content')
-<div class="container">
-    <ul class="list-inline mt-5">
-        <li class="list-inline-item"><a href="{{ route('rides.index') }}" class="btn btn-dark">{{ __('labels.back') }}</a>
-        <li class="list-inline-item"><h1 class="h3 mb-3 ">{{ __('labels.ride') }} {{ __('labels.details') }}</h1>
-    </ul>
-    <div class="card">
-        <div class="card-header">{{ __('labels.ride') }} #{{ $ride->id }}</div>
-        <div class="card-body">
-            <p><strong>{{__('labels.client')}}:</strong> {{ $ride->client->name }}</p>
-            <p><strong>{{__('labels.daycare')}}:</strong> {{ $ride->daycare->name ?? 'Geen dagbesteding' }}</p>
-            <p><strong>{{__('labels.status')}}:</strong> {{ __('labels.' . $ride->status) }}</p>
-            <p><strong>{{__('labels.remarks')}}:</strong> {{ !empty($ride->remarks) ? $ride->remarks : 'Geen opmerkingen' }}</p>
-            <p><strong>{{__('labels.start_time')}}:</strong> {{ $ride->start }}</p>
-            <p><strong>{{__('labels.end_time')}}:</strong> {{ $ride->end ?? 'Not ended' }}</p>
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a href="{{ route('rides.index') }}" class="btn btn-outline-dark">
+            {{ __('labels.back') }}
+        </a>
+        <h1 class="h4 text-dark mb-0">{{ __('labels.ride') }} {{ __('labels.details') }}</h1>
+    </div>
+
+    <div class="card shadow-sm border-0 bg-light">
+        <div class="card-header bg-dark text-white">
+            {{ __('labels.ride') }} #{{ $ride->id }}
+        </div>
+        <div class="card-body text-dark">
+            <div class="mb-3">
+                <span class="fw-semibold">{{ __('labels.client') }}:</span> {{ $ride->client->name }}
+            </div>
+            <div class="mb-3">
+                <span class="fw-semibold">{{ __('labels.daycare') }}:</span> {{ $ride->daycare->name ?? 'Geen dagbesteding' }}
+            </div>
+            <div class="mb-3">
+                <span class="fw-semibold">{{ __('labels.status') }}:</span> {{ __('labels.' . $ride->status) }}
+            </div>
+            <div class="mb-3">
+                <span class="fw-semibold">{{ __('labels.remarks') }}:</span> {{ !empty($ride->remarks) ? $ride->remarks : 'Geen opmerkingen' }}
+            </div>
+            <div class="mb-3">
+                <span class="fw-semibold">{{ __('labels.start_time') }}:</span> {{ $ride->start }}
+            </div>
+            <div>
+                <span class="fw-semibold">{{ __('labels.end_time') }}:</span> {{ $ride->end ?? 'Not ended' }}
+            </div>
         </div>
     </div>
 </div>

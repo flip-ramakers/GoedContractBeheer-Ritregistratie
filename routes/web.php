@@ -11,9 +11,8 @@ use App\Http\Controllers\MobileLoginController;
 use App\Http\Controllers\RideController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+
+Route::get('/', [MobileLoginController::class, 'showLoginform'])->name('login.show');
 
 Route::prefix('admin')->group(function () {
     Route::group(['middleware' => ['auth']], function () {
@@ -39,17 +38,17 @@ Route::prefix('admin')->group(function () {
 
 
 Route::prefix('chauffeur')->group(function () {
-    Route::group(['middleware' => ['mobile']], function () {});
-    Route::get('/login', [MobileLoginController::class, 'showLoginform'])->name('login.show');
-    Route::post('/login', [MobileLoginController::class, 'login'])->name('login');
+    Route::group(['middleware' => ['auth:chauffeur']], function () {
+        Route::match(['get', 'post'], '/clienten', [MobileClientenController::class, 'index'])->name('chauffeur.clienten');
+        Route::post('/mobile-client', [MobileClientenController::class, 'show'])->name('chauffeur.clienten.show');
+        
+        Route::get('/mobile-client/{client}', [MobileClientenController::class, 'show'])->name('mobile-client.show');
+        
+        Route::post('/rides', [RideController::class, 'store'])->name('rides.store');
+        
+        Route::get('/rides/{ride}', [RideController::class, 'show'])->name('rides.show');
+    });
+    Route::get('login', [MobileLoginController::class, 'showLogin'])->name('login.show');
+    Route::post('login', [MobileLoginController::class, 'login'])->name('login');
     Route::get('/verify-login/{token}', [MobileLoginController::class, 'verifyLogin'])->name('verify-login');
-
-    Route::match(['get', 'post'], '/clienten', [MobileClientenController::class, 'index'])->name('chauffeur.clienten');
-    Route::post('/mobile-client', [MobileClientenController::class, 'show'])->name('chauffeur.clienten.show');
-
-    Route::get('/mobile-client/{client}', [MobileClientenController::class, 'show'])->name('mobile-client.show');
-
-    Route::post('/rides', [RideController::class, 'store'])->name('rides.store');
-
-    Route::get('/rides/{ride}', [RideController::class, 'show'])->name('rides.show');
 });

@@ -25,7 +25,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/client/{client}/add-daycare', [ClientenController::class, 'addDaycare'])->name('client.addDaycare');
         Route::get('/client/{client}/add-daycare', [ClientenController::class, 'addDaycareForm'])->name('client.addDaycareForm');
 
-        Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+        Route::post('/logout', [LoginController::class, 'logout'])->name('logoutadmin');
 
         Route::get('rides', [RideController::class, 'index'])->name('rides.index');
         Route::get('rides/{ride}', [RideController::class, 'show'])->name('rides.show');
@@ -51,5 +51,5 @@ Route::prefix('chauffeur')->group(function () {
     Route::get('login', [MobileLoginController::class, 'showLogin'])->name('login.show');
     Route::post('login', [MobileLoginController::class, 'login'])->name('login');
     Route::get('/verify-login/{token}', [MobileLoginController::class, 'verifyLogin'])->name('verify-login');
-    Route::get('logout', [MobileLoginController::class, 'logout'])->name('logout');
+    Route::match(['get', 'post'], 'logout', [MobileLoginController::class, 'logout'])->name('logout');
 });

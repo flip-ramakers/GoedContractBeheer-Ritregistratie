@@ -18,7 +18,7 @@
         </ul>
 
         <div class="text-end">
-            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+            <form action="{{ route('logoutadmin') }}" method="POST" style="display: inline;">
                 @csrf
                 <button type="submit" class="btn btn-danger">{{ __('labels.signout') }}</button>
             </form>

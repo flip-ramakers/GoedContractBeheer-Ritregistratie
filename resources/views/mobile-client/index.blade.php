@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="container mt-5">
-        <h2>{{ __('labels.clients') }}</h2>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">{{ __('labels.clients') }}</h2>
+            <a href="{{ route('logout') }}" class="btn btn-danger rounded-4"
+                onclick="return confirm('Weet je zeker dat je wilt uitloggen?')"> Logout</a>
+        </div>
+
         <div class="row row-cols-2 row-cols-md-2 g-4">
             @foreach ($clients as $client)
                 <div class="col col-6">

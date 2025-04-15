@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class MobileLoginController extends Controller
 {
 
-    public function showLoginForm()
+    public function showLogin()
     {
         return view('mobile-login.login');
     }
@@ -24,7 +24,7 @@ class MobileLoginController extends Controller
         session()->flash('success', true);
         return redirect()->back();
     }
-    
+
     public function verifyLogin(Request $request, $token)
     {
         $token = \App\Models\LoginToken::whereToken(hash('sha256', $token))->firstOrFail();
@@ -33,5 +33,11 @@ class MobileLoginController extends Controller
         auth()->guard('chauffeur')->login($token->chauffeur);
 
         return redirect()->route('chauffeur.clienten');
+    }
+    
+    public function logout()
+    {
+        auth()->guard('chauffeur')->logout();
+        return redirect()->route('login');
     }
 }

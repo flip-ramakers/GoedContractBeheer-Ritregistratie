@@ -51,4 +51,5 @@ Route::prefix('chauffeur')->group(function () {
     Route::get('login', [MobileLoginController::class, 'showLogin'])->name('login.show');
     Route::post('login', [MobileLoginController::class, 'login'])->name('login');
     Route::get('/verify-login/{token}', [MobileLoginController::class, 'verifyLogin'])->name('verify-login');
+    Route::get('logout', [MobileLoginController::class, 'logout'])->name('logout');
 });

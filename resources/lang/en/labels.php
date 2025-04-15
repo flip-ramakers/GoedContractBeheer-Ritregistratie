@@ -83,5 +83,5 @@ return [
     'ride_status' => 'Ritstatus bijgewerkt',
     'ride_deleted' => 'Rit met succes verwijdert!',
 
-    'email_message' => 'Please click the link sent to your email to finish logging in.',
+    'email_message' => 'Klik op de link die naar je e-mail is gestuurd om het inloggen af te ronden.',
 ];

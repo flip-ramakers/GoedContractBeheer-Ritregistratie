@@ -67,6 +67,6 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('admins.index')->with('success', __('labels.daycare_deleted'));
+        return redirect()->route('admins.index')->with('success', __('labels.admin_deleted'));
     }
 }

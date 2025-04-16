@@ -1,6 +1,6 @@
 @component('mail::message')
-    Hello, to finish logging in please click the link below
+    Hallo, klik op de onderstaande link om het inloggen te voltooien.
     @component('mail::button', ['url' => $url])
-        Click to login
+        Klik om in te loggen
     @endcomponent
 @endcomponent

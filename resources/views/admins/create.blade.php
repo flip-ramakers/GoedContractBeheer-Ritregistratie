@@ -34,12 +34,6 @@
                 <input type="password" class="form-control w-100" name="password" id="Password"
                     placeholder="{{ __('labels.password') }}" required>
             </div>
-            <div class="mb-3">
-                <label for="PasswordConfirm">{{ __('labels.confirm') }} {{ __('labels.password') }}<span
-                        class="text-danger">{{ __('labels.star') }}</span></label>
-                <input type="password" class="form-control w-100" name="password_confirmation" id="PasswordConfirm"
-                    placeholder="Bevestig wachtwoord" required>
-            </div>
             <button class="btn btn-success mb-4 mt-4 me-2 py-2" type="submit">{{ __('labels.save') }}</button>
         </form>
     </div>

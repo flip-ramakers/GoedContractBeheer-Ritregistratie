@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
 use App\Models\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -27,14 +28,14 @@ class AdminController extends Controller
     public function store(StoreAdminRequest $request)
     {
         $validated = $request->validated();
-
+    
         $validated['password'] = Hash::make($validated['password']);
-
+    
         User::create($validated);
-
-
+    
         return redirect()->route('admins.index')->with('success', __('labels.admin_created'));
     }
+    
 
     public function edit(string $id)
     {

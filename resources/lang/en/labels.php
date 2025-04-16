@@ -14,6 +14,8 @@ return [
     'from' => 'van:',
     'to' => 'Naar:',
 
+
+    'space' => '',
     'star' => '*',
     'back' => 'Terug',
     'view' => 'bekijk',
@@ -84,4 +86,5 @@ return [
     'ride_deleted' => 'Rit met succes verwijdert!',
 
     'email_message' => 'Klik op de link die naar je e-mail is gestuurd om het inloggen af te ronden.',
+    'fail_email_message' => 'Lukt het niet? Ververs de pagina en probeer het opnieuw.',
 ];

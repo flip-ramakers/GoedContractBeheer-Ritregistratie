@@ -37,7 +37,6 @@
 
         <div class="mb-3">
             <label class="form-label"><strong>{{ __('labels.from') }}</strong></label>
-            {{-- <p>{{ $clientAddress->name }}</p> --}}
             <p><a href="https://www.google.com/maps/search/?api=1&query={{ $clientFullAddress }}"
                     target="_blank">{{ $clientAddress->street_address }}, {{ $clientAddress->postal_code }}
                     {{ $clientAddress->city }}</a></p>

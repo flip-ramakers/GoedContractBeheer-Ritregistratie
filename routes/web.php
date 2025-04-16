@@ -48,8 +48,12 @@ Route::prefix('chauffeur')->group(function () {
         
         Route::get('/rides/{ride}', [RideController::class, 'show'])->name('rides.show');
     });
-    Route::get('login', [MobileLoginController::class, 'showLogin'])->name('login.show');
+    
+    Route::get('login', [MobileLoginController::class, 'showLoginform'])->name('login.show');
+
     Route::post('login', [MobileLoginController::class, 'login'])->name('login');
+
     Route::get('/verify-login/{token}', [MobileLoginController::class, 'verifyLogin'])->name('verify-login');
+
     Route::match(['get', 'post'], 'logout', [MobileLoginController::class, 'logout'])->name('logout');
 });

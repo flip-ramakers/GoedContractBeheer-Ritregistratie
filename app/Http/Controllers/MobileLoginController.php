@@ -10,10 +10,11 @@ use Illuminate\Http\Request;
 class MobileLoginController extends Controller
 {
 
-    public function showLogin()
+    public function showLoginform()
     {
         return view('mobile-login.login');
     }
+    
 
     public function login(Request $request)
     {

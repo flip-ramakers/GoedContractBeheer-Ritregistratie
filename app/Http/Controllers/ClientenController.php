@@ -6,12 +6,14 @@ use App\Http\Requests\StoreClientRequest;
 use App\Models\Client;
 use App\Models\Daycare;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientenController extends Controller
 {
     public function index()
     {
         $clients = Client::all();
+    
         return view("clients.index", compact('clients'));
     }
 

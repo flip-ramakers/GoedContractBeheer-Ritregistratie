@@ -18,7 +18,16 @@
                 <span class="fw-semibold">{{ __('labels.client') }}:</span> {{ $ride->client->name }}
             </div>
             <div class="mb-3">
+                <span class="fw-semibold">{{ __('labels.client_address') }}:<br /></span>
+                <span>{!! nl2br(e($ride->client->address)) !!}</span>
+            </div>
+
+            <div class="mb-3">
                 <span class="fw-semibold">{{ __('labels.daycare') }}:</span> {{ $ride->daycare->name ?? 'Geen dagbesteding' }}
+            </div>
+            <div class="mb-3">
+                <span class="fw-semibold">{{ __('labels.daycare_address') }}:<br /></span>
+                <span>{!! nl2br(e($ride->daycare->address)) !!}</span>
             </div>
             <div class="mb-3">
                 <span class="fw-semibold">{{ __('labels.status') }}:</span> {{ __('labels.' . $ride->status) }}
@@ -27,10 +36,10 @@
                 <span class="fw-semibold">{{ __('labels.remarks') }}:</span> {{ !empty($ride->remarks) ? $ride->remarks : 'Geen opmerkingen' }}
             </div>
             <div class="mb-3">
-                <span class="fw-semibold">{{ __('labels.start_time') }}:</span> {{ $ride->start }}
+                <span class="fw-semibold">{{ __('labels.start_time') }}:</span> {{ $ride->start?->format('d-m-Y H:i') }}
             </div>
             <div>
-                <span class="fw-semibold">{{ __('labels.end_time') }}:</span> {{ $ride->end ?? 'Not ended' }}
+                <span class="fw-semibold">{{ __('labels.end_time') }}:</span> {{ $ride->end?->format('d-m-Y H:i') ?? '-' }}
             </div>
         </div>
     </div>

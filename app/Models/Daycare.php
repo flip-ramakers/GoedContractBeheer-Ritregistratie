@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,5 +19,17 @@ class Daycare extends Model
     public function clients()
     {
         return $this->belongsToMany(Client::class);
+    }
+
+    protected function address(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => sprintf(
+                "%s\n%s %s",
+                $this->street_address,
+                $this->postal_code,
+                $this->city
+            ),
+        );
     }
 }

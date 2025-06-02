@@ -15,6 +15,56 @@ class RideController extends Controller
         return view('rides.index', compact('rides'));
     }
 
+    public function export()
+    {
+        $rides = Ride::with(['client', 'daycare'])->latest()->get();
+
+        // Genereer bestandsnaam met timestamp
+        $filename = 'rides_export_' . date('Y-m-d_H-i-s') . '.csv';
+
+        // Maak een tijdelijk bestand aan
+        $handle = fopen('php://temp', 'r+');
+
+        // Schrijf headers
+        fputcsv($handle, [
+            'ID',
+            'Client',
+            'Client adres',
+            'Dagbesteding',
+            'Dagbesteding adres',
+            'Status',
+            'Start',
+            'Einde',
+        ]);
+
+        // Schrijf data rijen
+        foreach ($rides as $ride) {
+            fputcsv($handle, [
+                $ride->id,
+                $ride->client->name ?? '',
+                $ride->client->address ?? '',
+                $ride->daycare->name ?? '',
+                $ride->daycare->address ?? '',
+                __('labels.' . $ride->status),
+                $ride->start?->format('d-m-Y H:i'),
+                $ride->end?->format('d-m-Y H:i'),
+            ]);
+        }
+
+        // Reset pointer naar begin van het bestand
+        rewind($handle);
+
+        // Lees de inhoud van het bestand
+        $csv = stream_get_contents($handle);
+        fclose($handle);
+
+        // Creëer een response met juiste headers
+        return response($csv)
+            ->header('Content-Type', 'text/csv; charset=UTF-8')
+            ->header('Content-Disposition', 'attachment; filename="' . $filename . '"');
+
+    }
+
     public function store(StoreRideRequest $request)
     {
         $data = $request->validated();
@@ -48,7 +98,7 @@ class RideController extends Controller
         } else {
             $updateData = [
                 'status' => $data['status'],
-                'remarks' => $data['remarks'] ?? $ride->remarks, 
+                'remarks' => $data['remarks'] ?? $ride->remarks,
             ];
 
             if ($data['status'] === 'steppedout') {

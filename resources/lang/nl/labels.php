@@ -6,4 +6,5 @@ return [
     'clienten' => 'Cliënten',
     'chauffeurs' => 'Chauffeurs',
     'dagbestedingen' => 'Dagbestedingen',
+    'export' => 'Exporteren',
 ];

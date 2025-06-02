@@ -51,6 +51,6 @@
                 value="{{ old('telephone', $daycare->telephone) }}" required>
         </div>
 
-        <button type="submit" class="btn btn-success">{{ __('labels.edit') }}</button>
+        <button type="submit" class="btn btn-success">{{ __('labels.save') }}</button>
     </form>
 @endsection

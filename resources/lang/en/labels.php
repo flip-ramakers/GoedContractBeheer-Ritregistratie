@@ -10,6 +10,7 @@ return [
     'daycares' => 'Dagbestedingen',
     'rides' => 'Ritten',
     'ride' => 'Rit',
+    'export' => 'Exporteren',
 
     'from' => 'van:',
     'to' => 'Naar:',
@@ -41,9 +42,9 @@ return [
     'voorbeeldstad' => 'bijv. Velserbroek',
     'voorbeeldpostcode' => 'bijv. 2000 AB',
     'voorbeeldtelefoonnummer' => 'bijv. 0612345678',
-    
+
     'voorbeeldclient' => 'bijv. Pietje Visser',
-    
+
     'name' => 'Naam',
     'email' => 'Email',
     'city' => 'Stad',
@@ -87,4 +88,7 @@ return [
 
     'email_message' => 'Klik op de link die naar je e-mail is gestuurd om het inloggen af te ronden.',
     'fail_email_message' => 'Lukt het niet? Ververs de pagina en probeer het opnieuw.',
+
+    'client_address' => 'Adres van de cliënt',
+    'daycare_address' => 'Adres van de dagbesteding',
 ];

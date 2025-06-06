@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::table('rides', function (Blueprint $table) {
             $table->dropColumn('status');
-            $table->enum('status', ['steppedin', 'notsteppedin', 'steppedout']);
+            $table->enum('status', ['steppedin', 'notsteppedin', 'steppedout'])
+                ->nullable();
         });
     }
 };

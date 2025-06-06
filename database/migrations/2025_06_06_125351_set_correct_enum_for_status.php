@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('rides', function (Blueprint $table) {
-            $table->enum('status', ['steppedin', 'notsteppedin', 'steppedout'])->change();
+            $table->dropColumn('status');
+            $table->enum('status', ['steppedin', 'notsteppedin', 'steppedout']);
         });
     }
 };

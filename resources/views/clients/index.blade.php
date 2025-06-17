@@ -10,7 +10,7 @@
         <thead class="table-dark">
             <tr>
                 <th>{{ __('labels.name') }}</th>
-                <th>{{ __('labels.street_addres') }}</th>
+                <th>{{ __('labels.street_address') }}</th>
                 <th>{{ __('labels.postal_code') }}</th>
                 <th>{{ __('labels.city') }}</th>
                 <th>{{ __('labels.telephone') }}</th>

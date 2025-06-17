@@ -29,7 +29,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="street_address">{{ __('labels.street_addres') }}<span class="text-danger">*</span></label>
+            <label for="street_address">{{ __('labels.street_address') }}<span class="text-danger">*</span></label>
             <input type="text" class="form-control" name="street_address" id="street_address" value="{{ old('street_address', $client->street_address) }}" required>
         </div>
 
@@ -52,7 +52,7 @@
             <label>{{ __('labels.daycares') }}</label>
             @foreach ($daycares as $daycare)
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="daycares[]" value="{{ $daycare->id }}" id="daycare-{{ $daycare->id }}" 
+                    <input class="form-check-input" type="checkbox" name="daycares[]" value="{{ $daycare->id }}" id="daycare-{{ $daycare->id }}"
                     @if(in_array($daycare->id, $client->daycares->pluck('id')->toArray())) checked @endif>
                     <label class="form-check-label" for="daycare-{{ $daycare->id }}">
                         {{ $daycare->name }} ({{ $daycare->city }})

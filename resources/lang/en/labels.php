@@ -48,7 +48,7 @@ return [
     'name' => 'Naam',
     'email' => 'Email',
     'city' => 'Stad',
-    'street_addres' => 'Straat + huisnmr',
+    'street_address' => 'Straat + huisnmr',
     'telephone' => 'Telefoonnummer',
     'postal_code' => 'Postcode',
     'start_time' => 'Start Tijd',

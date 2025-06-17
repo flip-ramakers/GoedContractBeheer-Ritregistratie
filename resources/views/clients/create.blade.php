@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="street_address">{{ __('labels.street_addres') }}<span class="text-danger">{{ __('labels.star') }}</span></label>
+                    <label for="street_address">{{ __('labels.street_address') }}<span class="text-danger">{{ __('labels.star') }}</span></label>
                     <input type="text" class="form-control w-100" name="street_address" id="street_address"
                            placeholder="{{ __('labels.voorbeeldstraat') }}" required>
                 </div>

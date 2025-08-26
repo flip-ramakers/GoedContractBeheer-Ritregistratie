@@ -20,6 +20,7 @@ Route::prefix('admin')->group(function () {
         Route::get('admins/{admin}/edit', [AdminController::class, 'edit'])->name('admins.edit');
 
         Route::resource('chauffeurs', ChauffeurController::class);
+        Route::post('chauffeurs/{chauffeur}/login', [ChauffeurController::class, 'loginAsChauffeur'])->name('chauffeurs.login');
         Route::resource('daycares', DaycaresController::class);
         Route::resource('clients', ClientenController::class);
         Route::post('/client/{client}/add-daycare', [ClientenController::class, 'addDaycare'])->name('client.addDaycare');
